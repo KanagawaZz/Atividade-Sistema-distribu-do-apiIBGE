@@ -4,7 +4,8 @@
 -- 2) Cria o schema do dominio (LSPA - IBGE/SIDRA)
 -- ============================================================
 
-CREATE USER IF NOT EXISTS 'repl'@'%' IDENTIFIED BY 'replpassword';
+CREATE USER IF NOT EXISTS 'repl'@'%' IDENTIFIED WITH mysql_native_password BY 'replpassword';
+ALTER USER 'repl'@'%' IDENTIFIED WITH mysql_native_password BY 'replpassword';
 GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%';
 FLUSH PRIVILEGES;
 

@@ -40,8 +40,8 @@ SIDRA API (IBGE)
 
 ## 📦 Pré-requisitos
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) com Docker Compose
-- Portas livres: `8000`, `5672`, `15672`, `3306`–`3309`
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) instalado e **aberto/em execução**
+- Portas livres no host: `8000` (Manager), `5672`/`15672` (RabbitMQ), `3307`–`3310` (MySQL Cluster: Slaves na 3307–3309 e Master na 3310)
 
 ## 🚀 POP — Passo a passo para subir o projeto
 
@@ -54,11 +54,13 @@ cd Atividade-Sistema-distribu-do-apiIBGE
 
 ### 2. Subir todo o ecossistema
 
+> ⚠️ Certifique-se de que o **Docker Desktop** já está aberto antes de rodar o comando.
+
 ```bash
 docker compose up -d --build
 ```
 
-Isso sobe **7 containers**: RabbitMQ, MySQL Master, 3 MySQL Slaves, Manager e 3 réplicas de Worker.
+Isso compila e sobe **9 containers**: RabbitMQ, MySQL Master, 3 MySQL Slaves, Manager e 3 réplicas de Worker.
 
 ### 3. Ativar a replicação Master → Slaves
 
